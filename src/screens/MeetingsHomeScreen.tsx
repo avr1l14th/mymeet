@@ -1,6 +1,6 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FilterMenuButton } from "../components/FilterMenuButton";
-import { MeetingsEmpty, MeetingsError, MeetingsList } from "../components/MeetingsList";
+import { MeetingsEmpty, MeetingsError, MeetingsList, MeetingsSkeleton } from "../components/MeetingsList";
 import type { FilterState, MeetingGroup } from "../types";
 import { hasActiveFilters } from "../utils/filters";
 
@@ -24,6 +24,23 @@ export function MeetingsHomeScreen({
   onToggleSource
 }: MeetingsHomeScreenProps) {
   const activeFilters = useMemo(() => hasActiveFilters(filters), [filters]);
+  const [isFiltering, setIsFiltering] = useState(false);
+  const isInitialRenderRef = useRef(true);
+  const filtersKey = useMemo(() => JSON.stringify(filters), [filters]);
+
+  useEffect(() => {
+    if (isInitialRenderRef.current) {
+      isInitialRenderRef.current = false;
+      return;
+    }
+
+    setIsFiltering(true);
+    const timer = window.setTimeout(() => {
+      setIsFiltering(false);
+    }, 700);
+
+    return () => window.clearTimeout(timer);
+  }, [filtersKey]);
 
   return (
     <>
@@ -48,11 +65,12 @@ export function MeetingsHomeScreen({
         />
       </section>
 
-      {groups.length > 0 ? <MeetingsList groups={groups} /> : null}
-      {groups.length === 0 && activeFilters ? (
+      {isFiltering ? <MeetingsSkeleton /> : null}
+      {!isFiltering && groups.length > 0 ? <MeetingsList groups={groups} /> : null}
+      {!isFiltering && groups.length === 0 && activeFilters ? (
         <MeetingsError message="Для выбранных фильтров встречи не найдены. Измените параметры фильтрации." />
       ) : null}
-      {groups.length === 0 && !activeFilters ? (
+      {!isFiltering && groups.length === 0 && !activeFilters ? (
         <MeetingsEmpty title="Встреч пока нет" description="Добавьте первую встречу или подключите источник записи." />
       ) : null}
     </>

@@ -83,7 +83,7 @@ export function SearchScreen({
           />
           {isSearching ? (
             <button aria-label="Очистить поиск" className="search-clear-btn" onClick={() => setSearchQuery("")} type="button">
-              ×
+              <img alt="" src={assets.cancelIcon} />
             </button>
           ) : null}
         </label>

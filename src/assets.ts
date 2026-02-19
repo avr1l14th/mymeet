@@ -2,6 +2,7 @@ export const assets = {
   logoMark: "https://www.figma.com/api/mcp/asset/46a6190e-094f-4974-959e-e266786366f5",
   logoText: "https://www.figma.com/api/mcp/asset/6ae8eec6-d14b-4920-b2a0-74c2ad44cdbb",
   searchIcon: "https://www.figma.com/api/mcp/asset/afad538a-1ab8-46f4-9e04-d491c72c9a9c",
+  cancelIcon: "icons/cancel.svg",
   filterIcon: "https://www.figma.com/api/mcp/asset/66f5de9e-eeaf-4345-a0fb-833f5eef9fa8",
   filterSourceIcon: "https://www.figma.com/api/mcp/asset/c211a088-6edd-491a-9f6e-46ec9db34706",
   filterAuthorsIcon: "https://www.figma.com/api/mcp/asset/84bc1811-778b-445a-a667-933adf9f65e9",

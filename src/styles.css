@@ -253,7 +253,6 @@ input {
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  border-bottom: 1px solid var(--grey-40);
   position: sticky;
   top: 0;
   z-index: 25;
@@ -350,7 +349,14 @@ input {
 }
 
 .search-clear-btn:hover {
-  color: #818aa3;
+  opacity: 0.9;
+}
+
+.search-clear-btn img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
 }
 
 .search-field input::placeholder {
