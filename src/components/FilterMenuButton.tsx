@@ -589,7 +589,7 @@ export function FilterMenuButton({
                               }}
                               type="button"
                             >
-                              Выбрать
+                              Применить
                             </button>
                             <p className="filters-date-summary">{draftDateSummary}</p>
                           </div>
