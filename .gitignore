@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vite/TypeScript cache files
+*.tsbuildinfo
+
+# Local/system files
+.DS_Store
