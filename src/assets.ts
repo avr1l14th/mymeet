@@ -9,7 +9,7 @@ export const assets = {
   filterArrowRightIcon: "https://www.figma.com/api/mcp/asset/4a6bfe48-5083-4703-9e8a-2d73816c6686",
   filterCheckIcon: "https://www.figma.com/api/mcp/asset/3350e0c8-7c7f-4f90-a353-b67325c50089",
   sourceUploadedIcon: "https://www.figma.com/api/mcp/asset/ad6c266a-ac7e-4db5-966e-e36961275bb3",
-  sourceGoogleMeetIcon: "https://www.figma.com/api/mcp/asset/d1df1498-7bb9-4dda-9180-3505b5140e45",
+  sourceGoogleMeetIcon: "icons/google-meet.svg",
   sourceExtensionIcon: "https://www.figma.com/api/mcp/asset/4ecd858e-3a9c-4ab1-8daa-72b1b684ded6",
   sourceZoomIcon: "https://www.figma.com/api/mcp/asset/b29d365a-3b6d-49ad-ab2e-fa5b3fab4438",
   sourceYandexTelemostIcon: "https://www.figma.com/api/mcp/asset/19b804ac-1d60-4aab-9953-97b633f565ea",

@@ -28,3 +28,5 @@
 - 2026-02-19: подготовлена публикация на GitHub Pages: добавлены `.gitignore`, `base` в `vite.config.ts` и workflow `.github/workflows/deploy.yml`; локальная сборка `npm run build` успешна
 
 - 2026-02-19: исправлена загрузка SVG-иконок бокового меню на GitHub Pages: пути в `src/assets.ts` переведены с `/icons/...` на `icons/...`; `npm run build` успешен
+
+- 2026-02-19: заменена иконка `Google Meet` на локальный SVG (`public/icons/google-meet.svg`) и подключена через `src/assets.ts`; `npm run build` успешен
