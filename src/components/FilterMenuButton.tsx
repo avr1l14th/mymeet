@@ -42,7 +42,7 @@ const menuItems = [
   { key: "date", label: "Дата", icon: assets.filterDateIcon }
 ] as const;
 
-const weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"] as const;
+const weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"] as const;
 const monthNames = [
   "января",
   "февраля",
