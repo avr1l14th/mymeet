@@ -126,7 +126,11 @@ export function FilterMenuButton({
                   }}
                   onMouseLeave={scheduleSubmenuClose}
                 >
-                  <button className="filters-popover-item" role="menuitem" type="button">
+                  <button
+                    className={`filters-popover-item${isSubmenuOpen ? " is-submenu-open" : ""}`}
+                    role="menuitem"
+                    type="button"
+                  >
                     <span className="filters-popover-item-left">
                       <img alt="" src={item.icon} />
                       <span>{item.label}</span>

@@ -445,6 +445,10 @@ input {
   background: #f7f7f8;
 }
 
+.filters-popover-item.is-submenu-open {
+  background: #f7f7f8;
+}
+
 .filters-popover-item-left {
   display: inline-flex;
   align-items: center;
