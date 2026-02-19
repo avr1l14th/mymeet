@@ -151,5 +151,5 @@ export const meetingsByDate: MeetingGroup[] = [
 export const defaultFilters: FilterState = {
   participants: [],
   source: [],
-  dateRange: "all"
+  date: { kind: "none" }
 };

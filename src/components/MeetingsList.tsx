@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { assets } from "../assets";
 import { getParticipantColor, getParticipantInitial } from "../constants/participantColors";
 import { getSourceOption } from "../constants/sourceOptions";
@@ -6,6 +7,22 @@ import type { MeetingGroup } from "../types";
 type MeetingsListProps = {
   groups: MeetingGroup[];
 };
+
+const SKELETON_GROUP_HEIGHT = 108;
+const SKELETON_RESERVED_HEIGHT = 120;
+const SKELETON_MIN_ROWS = 3;
+const SKELETON_MAX_ROWS = 7;
+
+function getSkeletonRowsCount(): number {
+  if (typeof window === "undefined") {
+    return SKELETON_MAX_ROWS;
+  }
+
+  const availableHeight = Math.max(window.innerHeight - SKELETON_RESERVED_HEIGHT, SKELETON_GROUP_HEIGHT);
+  const rows = Math.ceil(availableHeight / SKELETON_GROUP_HEIGHT);
+
+  return Math.min(SKELETON_MAX_ROWS, Math.max(SKELETON_MIN_ROWS, rows));
+}
 
 function ParticipantAvatar({ participant }: { participant: string }) {
   return (
@@ -117,10 +134,21 @@ export function MeetingsList({ groups }: MeetingsListProps) {
 }
 
 export function MeetingsSkeleton() {
+  const [rowsCount, setRowsCount] = useState(getSkeletonRowsCount);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setRowsCount(getSkeletonRowsCount());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="skeleton-state" data-node-id="27141:11560">
       <div className="skeleton-list">
-        {[0, 1, 2].map((rowIndex) => (
+        {Array.from({ length: rowsCount }, (_, rowIndex) => (
           <div className="results-group" key={rowIndex}>
             <div className="date-row">
               <div className="date-skeleton-line skeleton-shimmer" />

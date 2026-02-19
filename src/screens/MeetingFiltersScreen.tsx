@@ -13,13 +13,6 @@ const sourceOptions: Array<{ value: FilterState["source"][number]; label: string
   { value: "upload", label: "Ручная загрузка" }
 ];
 
-const dateRangeOptions: Array<{ value: FilterState["dateRange"]; label: string }> = [
-  { value: "all", label: "За все время" },
-  { value: "last7", label: "Последние 7 дней" },
-  { value: "last30", label: "Последние 30 дней" },
-  { value: "older", label: "Старше 30 дней" }
-];
-
 export function MeetingFiltersScreen({ filters, participants, onChange, onApply }: MeetingFiltersScreenProps) {
   const toggleParticipant = (participant: string) => {
     const alreadySelected = filters.participants.includes(participant);
@@ -80,22 +73,11 @@ export function MeetingFiltersScreen({ filters, participants, onChange, onApply 
 
         <div className="filter-block">
           <h3>Дата</h3>
-          <div className="chip-grid">
-            {dateRangeOptions.map((option) => (
-              <button
-                className={`filter-chip${filters.dateRange === option.value ? " is-selected" : ""}`}
-                key={option.value}
-                onClick={() => onChange({ ...filters, dateRange: option.value })}
-                type="button"
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
+          <p>Фильтр даты настраивается через popover «Фильтры» в экранах Поиск/Встречи.</p>
         </div>
 
         <div className="filters-actions">
-          <button className="filters-action secondary" onClick={() => onChange({ participants: [], source: [], dateRange: "all" })} type="button">
+          <button className="filters-action secondary" onClick={() => onChange({ participants: [], source: [], date: { kind: "none" } })} type="button">
             Сбросить
           </button>
           <button className="filters-action primary" onClick={onApply} type="button">

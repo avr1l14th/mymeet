@@ -16,7 +16,7 @@ const screenTitles: Record<Screen, string> = {
 };
 
 export default function App() {
-  const [screen, setScreen] = useState<Screen>("search");
+  const [screen, setScreen] = useState<Screen>("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(defaultFilters);
 
@@ -61,8 +61,11 @@ export default function App() {
       };
     });
   };
+  const applyDateFilter = (date: FilterState["date"]) => {
+    setFilters((prev) => ({ ...prev, date }));
+  };
   const activeFilterKindsCount = useMemo(
-    () => [filters.source.length > 0, filters.participants.length > 0, filters.dateRange !== "all"].filter(Boolean).length,
+    () => [filters.source.length > 0, filters.participants.length > 0, filters.date.kind !== "none"].filter(Boolean).length,
     [filters]
   );
 
@@ -73,6 +76,7 @@ export default function App() {
         filters={filters}
         groups={filteredGroups}
         onClearFilters={resetFilters}
+        onApplyDate={applyDateFilter}
         onToggleParticipant={toggleParticipantFilter}
         onToggleSource={toggleSourceFilter}
         participantOptions={participantOptions}
@@ -84,6 +88,7 @@ export default function App() {
         filters={filters}
         groups={filteredGroups}
         onClearFilters={resetFilters}
+        onApplyDate={applyDateFilter}
         onToggleParticipant={toggleParticipantFilter}
         onToggleSource={toggleSourceFilter}
         participantOptions={participantOptions}

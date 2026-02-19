@@ -10,6 +10,7 @@ type MeetingsHomeScreenProps = {
   activeFilterKindsCount: number;
   participantOptions: Array<{ value: string; label: string }>;
   onClearFilters: () => void;
+  onApplyDate: (date: FilterState["date"]) => void;
   onToggleParticipant: (participant: string) => void;
   onToggleSource: (source: FilterState["source"][number]) => void;
 };
@@ -20,6 +21,7 @@ export function MeetingsHomeScreen({
   activeFilterKindsCount,
   participantOptions,
   onClearFilters,
+  onApplyDate,
   onToggleParticipant,
   onToggleSource
 }: MeetingsHomeScreenProps) {
@@ -56,10 +58,12 @@ export function MeetingsHomeScreen({
         <FilterMenuButton
           activeFilterKindsCount={activeFilterKindsCount}
           hasActiveFilters={activeFilters}
+          onApplyDate={onApplyDate}
           onClearFilters={onClearFilters}
           onToggleParticipant={onToggleParticipant}
           onToggleSource={onToggleSource}
           participantOptions={participantOptions}
+          selectedDate={filters.date}
           selectedParticipants={filters.participants}
           selectedSources={filters.source}
         />

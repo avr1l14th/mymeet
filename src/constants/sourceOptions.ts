@@ -17,8 +17,7 @@ export const sourceOptions: SourceOption[] = [
   { value: "kontur-talk", label: "Контур.Толк", icon: assets.sourceKonturTalkIcon },
   { value: "jitsi", label: "Jitsi", icon: assets.sourceJitsiIcon },
   { value: "salutejazz", label: "SaluteJazz", icon: assets.sourceSaluteJazzIcon },
-  { value: "trueconf", label: "TrueConf", icon: assets.sourceTrueConfIcon },
-  { value: "upload", label: "Загружено", icon: assets.sourceUploadedIcon }
+  { value: "trueconf", label: "TrueConf", icon: assets.sourceTrueConfIcon }
 ];
 
 export function getSourceOption(source: Meeting["source"]): SourceOption {

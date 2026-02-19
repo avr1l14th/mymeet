@@ -48,5 +48,8 @@ export type MeetingGroup = {
 export type FilterState = {
   participants: string[];
   source: Meeting["source"][];
-  dateRange: "all" | "last7" | "last30" | "older";
+  date:
+    | { kind: "none" }
+    | { kind: "single"; dateISO: string }
+    | { kind: "range"; startDateISO: string; endDateISO: string };
 };

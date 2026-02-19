@@ -9,3 +9,5 @@ dist/
 
 # Local/system files
 .DS_Store
+
+.codex/

@@ -3,6 +3,7 @@ import { assets } from "../assets";
 import { FilterMenuButton } from "../components/FilterMenuButton";
 import { MeetingsEmpty, MeetingsError, MeetingsList, MeetingsSkeleton } from "../components/MeetingsList";
 import type { FilterState, MeetingGroup } from "../types";
+import { hasActiveFilters } from "../utils/filters";
 
 type SearchScreenProps = {
   groups: MeetingGroup[];
@@ -10,6 +11,7 @@ type SearchScreenProps = {
   activeFilterKindsCount: number;
   participantOptions: Array<{ value: string; label: string }>;
   onClearFilters: () => void;
+  onApplyDate: (date: FilterState["date"]) => void;
   onToggleParticipant: (participant: string) => void;
   onToggleSource: (source: FilterState["source"][number]) => void;
 };
@@ -20,6 +22,7 @@ export function SearchScreen({
   activeFilterKindsCount,
   participantOptions,
   onClearFilters,
+  onApplyDate,
   onToggleParticipant,
   onToggleSource
 }: SearchScreenProps) {
@@ -89,11 +92,13 @@ export function SearchScreen({
         </label>
         <FilterMenuButton
           activeFilterKindsCount={activeFilterKindsCount}
-          hasActiveFilters={filters.source.length > 0 || filters.participants.length > 0}
+          hasActiveFilters={hasActiveFilters(filters)}
+          onApplyDate={onApplyDate}
           onClearFilters={onClearFilters}
           onToggleParticipant={onToggleParticipant}
           onToggleSource={onToggleSource}
           participantOptions={participantOptions}
+          selectedDate={filters.date}
           selectedParticipants={filters.participants}
           selectedSources={filters.source}
         />

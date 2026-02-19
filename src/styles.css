@@ -526,6 +526,187 @@ input {
   z-index: 31;
 }
 
+.filters-date-popover {
+  position: absolute;
+  top: -4px;
+  right: calc(100% + 8px);
+  width: 279px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 31;
+}
+
+.filters-date-header {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  align-items: center;
+}
+
+.filters-date-title {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: -0.28px;
+  font-weight: 500;
+  color: var(--default-black);
+}
+
+.filters-date-nav {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  padding: 0;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filters-date-nav:hover {
+  background: #f7f7f8;
+}
+
+.filters-date-nav:disabled {
+  background: #fff;
+  cursor: default;
+}
+
+.filters-date-nav:disabled:hover {
+  background: #fff;
+}
+
+.filters-date-nav img {
+  width: 20px;
+  height: 20px;
+}
+
+.filters-date-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 24px);
+  justify-content: space-between;
+}
+
+.filters-date-weekday {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  color: var(--default-grey);
+}
+
+.filters-date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 24px);
+  justify-content: space-between;
+  gap: 5px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.filters-date-grid-wrap {
+  position: relative;
+}
+
+.filters-date-range-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.filters-date-range-segment {
+  position: absolute;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--bg-blue-sea);
+}
+
+.filters-date-cell {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filters-date-day {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  background: #fff;
+  color: var(--default-black);
+  font-size: 13px;
+  letter-spacing: -0.13px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.filters-date-day:hover {
+  background: #f7f7f8;
+}
+
+.filters-date-day.is-future {
+  cursor: default;
+}
+
+.filters-date-day.is-future:hover {
+  background: #fff;
+}
+
+.filters-date-day.is-outside-month {
+  color: var(--default-grey);
+}
+
+.filters-date-day.is-in-range {
+  background: transparent;
+}
+
+.filters-date-day.is-selected-single,
+.filters-date-day.is-selected-start,
+.filters-date-day.is-selected-end {
+  background: var(--blue-default);
+  color: #fff;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.filters-date-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filters-date-apply {
+  width: 100%;
+  height: 36px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--blue-default);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.13px;
+  cursor: pointer;
+}
+
+.filters-date-summary {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  color: var(--default-grey);
+}
+
 .filters-source-item {
   width: 100%;
   height: 32px;
@@ -540,6 +721,65 @@ input {
   font-size: 13px;
   letter-spacing: -0.13px;
   cursor: pointer;
+}
+
+.filters-authors-search-wrap {
+  width: 100%;
+  height: 32px;
+  padding: 8px 6px;
+  border-radius: 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filters-authors-search-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--default-black);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.13px;
+  line-height: normal;
+  position: relative;
+  z-index: 1;
+}
+
+.filters-authors-search-placeholder {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.13px;
+  color: var(--grey-60);
+  pointer-events: none;
+}
+
+.filters-authors-search-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--grey-40);
+}
+
+.filters-authors-empty {
+  width: 100%;
+  height: 32px;
+  border-radius: 2px;
+  padding: 8px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.13px;
+  color: var(--grey-60);
 }
 
 .filters-source-item:hover {
