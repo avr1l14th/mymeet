@@ -26,6 +26,8 @@ body,
 
 body {
   background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button,
@@ -393,7 +395,7 @@ input {
   align-items: center;
   justify-content: center;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.1px;
   color: var(--default-grey);
 }
@@ -676,7 +678,7 @@ input {
 .filters-date-day.is-selected-end {
   background: var(--blue-default);
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
   z-index: 2;
 }
 
@@ -826,7 +828,7 @@ input {
 .filters-participant-icon-label {
   font-size: 8px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .filters-source-label {
@@ -1051,7 +1053,7 @@ input {
   position: absolute;
   z-index: 2;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.24px;
   color: #fff;
   line-height: 1;
@@ -1107,7 +1109,7 @@ input {
   z-index: 2;
   font-size: 12px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.24px;
   color: #fff;
 }
@@ -1186,7 +1188,7 @@ input {
 .participant-avatar-label {
   font-size: 8px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
 }
 
@@ -1503,7 +1505,7 @@ input {
 .filters-card h2 {
   margin: 0;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.24px;
 }
 
@@ -1521,7 +1523,7 @@ input {
 .filter-block h3 {
   margin: 0;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .chip-grid {

@@ -15,16 +15,18 @@ function isInDateRange(meeting: Meeting, date: FilterState["date"]): boolean {
 export function applyFilters(groups: MeetingGroup[], filters: FilterState): MeetingGroup[] {
   return groups
     .map((group) => {
-      const meetings = group.meetings.filter((meeting) => {
-        const participantsPool = meeting.authors?.length ? meeting.authors : [meeting.participant];
-        const participantMatch =
-          filters.participants.length === 0 ||
-          participantsPool.some((participant) => filters.participants.includes(participant));
-        const sourceMatch = filters.source.length === 0 || filters.source.includes(meeting.source);
-        const dateMatch = isInDateRange(meeting, filters.date);
+      const meetings = group.meetings
+        .filter((meeting) => {
+          const participantsPool = meeting.authors?.length ? meeting.authors : [meeting.participant];
+          const participantMatch =
+            filters.participants.length === 0 ||
+            participantsPool.some((participant) => filters.participants.includes(participant));
+          const sourceMatch = filters.source.length === 0 || filters.source.includes(meeting.source);
+          const dateMatch = isInDateRange(meeting, filters.date);
 
-        return participantMatch && sourceMatch && dateMatch;
-      });
+          return participantMatch && sourceMatch && dateMatch;
+        })
+        .sort((a, b) => b.time.localeCompare(a.time));
 
       return { ...group, meetings };
     })

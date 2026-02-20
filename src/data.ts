@@ -86,7 +86,7 @@ export const meetingsByDate: MeetingGroup[] = [
     ]
   },
   {
-    date: "17 фев",
+    date: "17 февраля",
     weekday: "Вторник",
     meetings: [
       {
