@@ -49,10 +49,8 @@ export function MeetingsList({ groups }: MeetingsListProps) {
               <article className={`meeting-row${meeting.muted ? " is-muted" : ""}`} key={meeting.id}>
                 <div className="meeting-row-layout">
                   <div className="meeting-left-col">
-                    <div className={`meeting-thumb ${meeting.thumb}`}>
-                      {meeting.thumb === "legacy" ? (
-                        <img alt="" className="legacy-center-icon" src={assets.legacyCenterIcon} />
-                      ) : (
+                    <div className={`meeting-thumb ${meeting.previewState === "processing" ? "" : "source-preview"}`}>
+                      {meeting.previewState === "processing" ? (
                         <>
                           <img
                             alt=""
@@ -72,6 +70,8 @@ export function MeetingsList({ groups }: MeetingsListProps) {
                             </>
                           )}
                         </>
+                      ) : (
+                        <img alt="" className="source-preview-icon" src={source.icon} />
                       )}
                       {meeting.previewState === "processing" && meeting.thumbBadge ? (
                         <span className="thumb-processing-label">{meeting.thumbBadge}</span>

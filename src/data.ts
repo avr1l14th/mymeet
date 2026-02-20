@@ -47,7 +47,7 @@ export const meetingsByDate: MeetingGroup[] = [
       {
         id: "m3",
         title: "Синк с интеграцией Zoom и webhook-событиями",
-        time: "17:15",
+        time: "12:00",
         duration: "31 мин",
         participant: "backend@mymeet.ai",
         source: "zoom",
@@ -131,7 +131,7 @@ export const meetingsByDate: MeetingGroup[] = [
         source: "salutejazz",
         dateISO: "2026-02-17",
         status: "Загружено",
-        thumb: "legacy"
+        thumb: "audio1"
       },
       {
         id: "m10",
@@ -143,6 +143,79 @@ export const meetingsByDate: MeetingGroup[] = [
         dateISO: "2026-02-17",
         status: "Загружено",
         thumb: "audio2"
+      }
+    ]
+  },
+  {
+    date: "15 января",
+    weekday: "Четверг",
+    meetings: [
+      {
+        id: "m11",
+        title: "Анализ падения конверсии после редизайна onboarding",
+        time: "16:55",
+        duration: "47 мин",
+        participant: "analytics@mymeet.ai",
+        source: "uploaded",
+        dateISO: "2026-01-15",
+        status: "Загружено",
+        thumb: "audio1"
+      },
+      {
+        id: "m12",
+        title: "Согласование roadmap интеграций на Q2",
+        time: "09:20",
+        duration: "39 мин",
+        participant: "pm@mymeet.ai",
+        source: "trueconf",
+        dateISO: "2026-01-15",
+        status: "Загружено",
+        thumb: "audio2"
+      }
+    ]
+  },
+  {
+    date: "9 января",
+    weekday: "Пятница",
+    meetings: [
+      {
+        id: "m13",
+        title: "Клиентский созвон: автоматические саммари встреч",
+        time: "13:35",
+        duration: "54 мин",
+        participant: "customer.success@mymeet.ai",
+        source: "google-meet",
+        dateISO: "2026-01-09",
+        status: "Загружено",
+        thumb: "audio1"
+      },
+      {
+        id: "m14",
+        title: "Техдолг: чистка очередей воркеров обработки",
+        time: "08:45",
+        duration: "26 мин",
+        participant: "platform@mymeet.ai",
+        source: "salutejazz",
+        dateISO: "2026-01-09",
+        status: "Загружено",
+        thumb: "audio2"
+      }
+    ]
+  },
+  {
+    date: "3 января",
+    weekday: "Суббота",
+    meetings: [
+      {
+        id: "m15",
+        title: "Ретро релиза мобильного виджета встреч",
+        time: "15:25",
+        duration: "33 мин",
+        participant: "mobile@mymeet.ai",
+        source: "microsoft-teams",
+        dateISO: "2026-01-03",
+        status: "Загружено",
+        thumb: "audio1"
       }
     ]
   }

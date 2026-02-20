@@ -175,8 +175,22 @@ function buildRangeSegments(days: CalendarDay[], date: FilterState["date"]): Ran
     return [];
   }
 
-  const startIndex = days.findIndex((day) => day.iso === date.startDateISO);
-  const endIndex = days.findIndex((day) => day.iso === date.endDateISO);
+  const firstVisibleISO = days[0]?.iso;
+  const lastVisibleISO = days[days.length - 1]?.iso;
+
+  if (!firstVisibleISO || !lastVisibleISO) {
+    return [];
+  }
+
+  const clippedStartISO = date.startDateISO < firstVisibleISO ? firstVisibleISO : date.startDateISO;
+  const clippedEndISO = date.endDateISO > lastVisibleISO ? lastVisibleISO : date.endDateISO;
+
+  if (clippedEndISO < clippedStartISO) {
+    return [];
+  }
+
+  const startIndex = days.findIndex((day) => day.iso === clippedStartISO);
+  const endIndex = days.findIndex((day) => day.iso === clippedEndISO);
 
   if (startIndex < 0 || endIndex < 0 || endIndex < startIndex) {
     return [];

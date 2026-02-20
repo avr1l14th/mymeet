@@ -206,7 +206,7 @@ input {
 }
 
 .plan-usage {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.1px;
 }
@@ -401,6 +401,10 @@ input {
 }
 
 .filters-btn:hover {
+  background: #f7f7f8;
+}
+
+.filters-btn[aria-expanded="true"] {
   background: #f7f7f8;
 }
 
@@ -722,6 +726,7 @@ input {
   color: var(--default-black);
   font-size: 13px;
   letter-spacing: -0.13px;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -832,7 +837,12 @@ input {
 }
 
 .filters-source-label {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .empty-state {
@@ -1041,6 +1051,14 @@ input {
   justify-content: center;
 }
 
+.meeting-thumb.source-preview {
+  border: 1px solid var(--grey-40);
+  background: var(--grey-20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .meeting-thumb-image {
   position: absolute;
   inset: 0;
@@ -1125,6 +1143,11 @@ input {
 }
 
 .legacy-center-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.source-preview-icon {
   width: 18px;
   height: 18px;
 }
