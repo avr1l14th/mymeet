@@ -231,8 +231,6 @@ export function FilterMenuButton({
   const [activeSubmenu, setActiveSubmenu] = useState<SubmenuKey | null>(null);
   const [draftDate, setDraftDate] = useState<FilterState["date"]>(selectedDate);
   const [visibleMonth, setVisibleMonth] = useState<Date>(() => getInitialMonth(selectedDate));
-  const [sourceSearch, setSourceSearch] = useState("");
-  const [authorsSearch, setAuthorsSearch] = useState("");
   const rootRef = useRef<HTMLDivElement | null>(null);
   const submenuCloseTimerRef = useRef<number | null>(null);
   const hasActiveSourceFilters = selectedSources.length > 0;
@@ -246,23 +244,6 @@ export function FilterMenuButton({
   const todayISO = formatDateISO(new Date());
   const currentMonth = useMemo(() => normalizeMonth(new Date()), []);
   const canGoToNextMonth = visibleMonth.getTime() < currentMonth.getTime();
-  const filteredSourceOptions = useMemo(() => {
-    const query = sourceSearch.trim().toLowerCase();
-    if (!query) {
-      return sourceOptions;
-    }
-
-    return sourceOptions.filter((source) => source.label.toLowerCase().includes(query));
-  }, [sourceSearch]);
-  const filteredParticipantOptions = useMemo(() => {
-    const query = authorsSearch.trim().toLowerCase();
-    if (!query) {
-      return participantOptions;
-    }
-
-    return participantOptions.filter((participant) => participant.label.toLowerCase().includes(query));
-  }, [authorsSearch, participantOptions]);
-
   const clearSubmenuCloseTimer = () => {
     if (submenuCloseTimerRef.current !== null) {
       window.clearTimeout(submenuCloseTimerRef.current);
@@ -313,8 +294,6 @@ export function FilterMenuButton({
 
     setDraftDate(selectedDate);
     setVisibleMonth(getInitialMonth(selectedDate));
-    setSourceSearch("");
-    setAuthorsSearch("");
   }, [open, selectedDate]);
 
   return (
@@ -385,23 +364,7 @@ export function FilterMenuButton({
                   >
                     {submenuKey === "source" ? (
                       <>
-                        <div className="filters-authors-search-wrap">
-                          <input
-                            aria-label="Найти источник"
-                            className="filters-authors-search-input"
-                            onChange={(event) => setSourceSearch(event.target.value)}
-                            type="text"
-                            value={sourceSearch}
-                          />
-                          {sourceSearch.length === 0 ? (
-                            <span aria-hidden="true" className="filters-authors-search-placeholder">
-                              Найти
-                            </span>
-                          ) : null}
-                        </div>
-                        <div className="filters-authors-search-divider" />
-                        {filteredSourceOptions.length > 0 ? (
-                          filteredSourceOptions.map((source) => (
+                        {sourceOptions.map((source) => (
                             <button
                               aria-checked={selectedSources.includes(source.value)}
                               className="filters-source-item"
@@ -420,34 +383,13 @@ export function FilterMenuButton({
                               <img alt="" className="filters-source-icon" src={source.icon} />
                               <span className="filters-source-label">{source.label}</span>
                             </button>
-                          ))
-                        ) : (
-                          <div className="filters-authors-empty" role="status">
-                            Ничего не найдено
-                          </div>
-                        )}
+                          ))}
                       </>
                     ) : null}
 
                     {submenuKey === "authors" ? (
                       <>
-                        <div className="filters-authors-search-wrap">
-                          <input
-                            aria-label="Найти автора"
-                            className="filters-authors-search-input"
-                            onChange={(event) => setAuthorsSearch(event.target.value)}
-                            type="text"
-                            value={authorsSearch}
-                          />
-                          {authorsSearch.length === 0 ? (
-                            <span aria-hidden="true" className="filters-authors-search-placeholder">
-                              Найти
-                            </span>
-                          ) : null}
-                        </div>
-                        <div className="filters-authors-search-divider" />
-                        {filteredParticipantOptions.length > 0 ? (
-                          filteredParticipantOptions.map((participant) => (
+                        {participantOptions.map((participant) => (
                             <button
                               aria-checked={selectedParticipants.includes(participant.value)}
                               className="filters-source-item"
@@ -471,12 +413,7 @@ export function FilterMenuButton({
                               </span>
                               <span className="filters-source-label">{participant.label}</span>
                             </button>
-                          ))
-                        ) : (
-                          <div className="filters-authors-empty" role="status">
-                            Ничего не найдено
-                          </div>
-                        )}
+                          ))}
                       </>
                     ) : null}
 

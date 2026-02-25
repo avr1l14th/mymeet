@@ -730,50 +730,6 @@ input {
   cursor: pointer;
 }
 
-.filters-authors-search-wrap {
-  width: 100%;
-  height: 32px;
-  padding: 8px 6px;
-  border-radius: 2px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.filters-authors-search-input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0;
-  background: transparent;
-  color: var(--default-black);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: -0.13px;
-  line-height: normal;
-  position: relative;
-  z-index: 1;
-}
-
-.filters-authors-search-placeholder {
-  position: absolute;
-  left: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: -0.13px;
-  color: var(--grey-60);
-  pointer-events: none;
-}
-
-.filters-authors-search-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--grey-40);
-}
-
 .filters-authors-empty {
   width: 100%;
   height: 32px;
@@ -1035,8 +991,10 @@ input {
 }
 
 .empty-icon {
-  width: 32px;
-  height: 32px;
+  width: 124px;
+  height: 124px;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 .empty-state h2 {

@@ -196,7 +196,7 @@ export function MeetingsEmpty({ title, description }: { title: string; descripti
   return (
     <section className="empty-state">
       <div className="empty-card">
-        <img alt="" className="empty-icon" src={assets.emptySearchIcon} />
+        <img alt="" className="empty-icon" src={assets.emptySearchGif} />
         <h2>{title}</h2>
         <p>{description}</p>
       </div>
