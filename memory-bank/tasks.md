@@ -93,3 +93,5 @@
 - 2026-02-25: в боковом меню заменена иконка пункта `Выйти` на локальный `public/icons/logout-new.svg` (из `Frame 337383.svg`), `assets.powerIcon` переведен на `icons/logout-new.svg`; `npm run build` успешен; без push
 - 2026-02-25: в empty-state экрана `Поиск` иконка заменена на `assets.monkeyGif`, размер `.empty-icon` увеличен до `124x124` с `object-fit: cover`; `npm run build` успешен; без push
 - 2026-02-25: в empty-state экрана `Поиск` гифка переключена на отдельный локальный asset `assets.emptySearchGif` (`public/icons/default-search.gif`), при этом `error-state` оставлен на `assets.monkeyGif`; `npm run build` успешен; без push
+- 2026-02-25: в инпуте поиска на экране `Поиск` удалена ведущая иконка лупы (удален `<img src={assets.searchIcon}>` из `SearchScreen`); `npm run build` успешен; без push
+- 2026-02-25: в поле поиска обновлен placeholder с `Название встречи` на `Поиск по названию или содержанию встречи`; `npm run build` успешен; без push

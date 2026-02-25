@@ -77,10 +77,9 @@ export function SearchScreen({
     <>
       <section className="search-row">
         <label className={`search-field${isSearching ? " is-active" : ""}`}>
-          <img alt="" src={assets.searchIcon} />
           <input
             onChange={(event) => setSearchQuery(event.target.value)}
-            placeholder="Название встречи"
+            placeholder="Поиск по названию или содержанию встречи"
             type="text"
             value={searchQuery}
           />
